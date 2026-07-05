@@ -27,43 +27,36 @@ jobs:
     steps:
       # リポジトリのコードをチェックアウト
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0  # 全履歴を取得（lastUpdatedの表示に必要）
 
-      # pnpmのセットアップ
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 9
 
-      # Node.jsのセットアップ（pnpmキャッシュも有効化）
+      # Node.jsのセットアップ（npmキャッシュも有効化）
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: pnpm
-          cache-dependency-path: practice/pnpm-lock.yaml
+          cache: npm
+          cache-dependency-path: package-lock.json
 
       # GitHub Pagesの設定を取得
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v6
 
       # 依存パッケージのインストール
       - name: Install dependencies
-        run: pnpm install
-        working-directory: practice
+        run: npm ci
 
       # VitePressでサイトをビルド（.vitepress/distに出力）
       - name: Build with VitePress
-        run: pnpm doc:build
-        working-directory: practice
+        run: npm run docs:build
 
       # ビルド成果物をアーティファクトとしてアップロード
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
-          path: practice/.vitepress/dist  # ビルド出力ディレクトリ
+          path: .vitepress/dist  # ビルド出力ディレクトリ
 
   # ========================================
   # デプロイジョブ: ビルド成果物をGitHub Pagesに公開
@@ -78,4 +71,4 @@ jobs:
       # GitHub Pagesにデプロイ
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
