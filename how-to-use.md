@@ -1,85 +1,23 @@
-# Markdown Extension Examples
+# アプリの使い方
 
-This page demonstrates some of the built-in markdown extensions provided by VitePress.
+## スタッフ通知で新規注文にeギフト注文情報を追加する 
 
-## Syntax Highlighting
+```liquid
+{% assign is_egift_order = false %}
+{% for line in line_items %}
+  {% if line.properties['_egiftnow_egift_buy'] == '1' %}
+    {% assign is_egift_order = true %}
+    {% break %}
+  {% endif %}
+{% endfor %}
 
-VitePress provides Syntax Highlighting powered by [Shiki](https://github.com/shikijs/shiki), with additional features like line-highlighting:
-
-**Input**
-
-````md
-```js{4}
-export default {
-  data () {
-    return {
-      msg: 'Highlighted!'
-    }
-  }
-}
+{% if is_egift_order %}
+  <p><strong>この注文はeギフト注文です。</strong></p>
+{% endif %}
 ```
-````
-
-**Output**
-
-```js{4}
-export default {
-  data () {
-    return {
-      msg: 'Highlighted!'
-    }
-  }
-}
-```
-
-## Custom Containers
-
-**Input**
-
-```md
-::: info
-This is an info box.
-:::
-
-::: tip
-This is a tip.
-:::
-
-::: warning
-This is a warning.
-:::
-
-::: danger
-This is a dangerous warning.
-:::
-
-::: details
-This is a details block.
-:::
-```
-
-**Output**
 
 ::: info
-This is an info box.
+- 設定 → 通知 → スタッフへの通知 → 新規注文 を開く
+- 上のコードスニペットをメール本文に追加する
 :::
 
-::: tip
-This is a tip.
-:::
-
-::: warning
-This is a warning.
-:::
-
-::: danger
-This is a dangerous warning.
-:::
-
-::: details
-This is a details block.
-:::
-
-## More
-
-Check out the documentation for the [full list of markdown extensions](https://vitepress.dev/guide/markdown).
