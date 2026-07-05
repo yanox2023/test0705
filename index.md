@@ -15,7 +15,7 @@ hero:
       link: /privacy-policy
 
 features:
-  - title: e-Gift Nowとは？
+  - title: e-Gift Nowとは？123
     details: >-
       ストアの商品をURLで贈れるeギフトにできます。贈る人は住所を知らない相手にURLを送るだけで、相手は住所を入力して商品を受け取れます。
   - title: 住所を知らなくてもLINEやメールで贈れるギフト体験を追加
