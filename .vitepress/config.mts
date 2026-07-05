@@ -4,7 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "e-Gift Now",
   description: "e-Gift Now",
-  base: '/egift-now/',
+  base: '/test0705/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
