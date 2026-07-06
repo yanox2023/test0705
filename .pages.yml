@@ -68,32 +68,16 @@ content:
             label: 詳細
             type: text
 
-  - name: how_to_use
-    label: アプリの使い方
+  - name: setup
+    label: はじめての設定
     type: file
-    path: how-to-use.md
+    path: setup/index.md
     format: yaml-frontmatter
     operations:
       create: false
       rename: false
       delete: false
-    fields:
-      - name: body
-        label: 本文
-        type: code
-        options:
-          format: markdown
-
-  - name: privacy_policy
-    label: プライバシーポリシー
-    type: file
-    path: privacy-policy.md
-    format: yaml-frontmatter
-    operations:
-      create: false
-      rename: false
-      delete: false
-    fields:
+    fields: &markdown_page_fields
       - name: outline
         label: 目次の深さ
         type: select
@@ -104,6 +88,138 @@ content:
         type: code
         options:
           format: markdown
+
+  - name: manual_index
+    label: マニュアル一覧
+    type: file
+    path: manual/index.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields: *markdown_page_fields
+
+  - name: manual_products
+    label: 商品設定
+    type: file
+    path: manual/products.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields: *markdown_page_fields
+
+  - name: manual_theme
+    label: テーマ設定
+    type: file
+    path: manual/theme.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields: *markdown_page_fields
+
+  - name: manual_shipping_page
+    label: 受取ページ設定
+    type: file
+    path: manual/shipping-page.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields: *markdown_page_fields
+
+  - name: manual_notification_email
+    label: 通知メール設定
+    type: file
+    path: manual/notification-email.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields: *markdown_page_fields
+
+  - name: manual_order_management
+    label: 注文管理
+    type: file
+    path: manual/order-management.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields: *markdown_page_fields
+
+  - name: help_index
+    label: ヘルプ
+    type: file
+    path: help/index.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields: *markdown_page_fields
+
+  - name: help_faq
+    label: FAQ
+    type: file
+    path: help/faq.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields: *markdown_page_fields
+
+  - name: help_troubleshooting
+    label: トラブルシューティング
+    type: file
+    path: help/troubleshooting.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields: *markdown_page_fields
+
+  - name: contact
+    label: お問い合わせ
+    type: file
+    path: contact.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields: *markdown_page_fields
+
+  - name: privacy_policy
+    label: プライバシーポリシー
+    type: file
+    path: privacy-policy.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields: *markdown_page_fields
+
+  - name: terms
+    label: 利用規約
+    type: file
+    path: terms.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields: *markdown_page_fields
 
 settings:
   commit:

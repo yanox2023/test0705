@@ -8,11 +8,11 @@ hero:
   tagline: "住所を知らなくてもLINEやメールで贈れるギフト体験"
   actions:
     - theme: brand
-      text: アプリの使い方
-      link: /how-to-use
+      text: はじめての設定
+      link: /setup/
     - theme: alt
-      text: プライバシーポリシー
-      link: /privacy-policy
+      text: マニュアル
+      link: /manual/
 
 features:
   - title: e-Gift Nowとは？
