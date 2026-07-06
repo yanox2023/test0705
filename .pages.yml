@@ -1,1 +1,113 @@
-test
+media:
+  input: public/media
+  output: /media
+  rename: safe
+  categories: [image, document]
+
+content:
+  - name: home
+    label: トップページ
+    type: file
+    path: index.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: layout
+        type: string
+        hidden: true
+      - name: hero
+        label: ヒーロー
+        type: object
+        fields:
+          - name: name
+            label: サービス名
+            type: string
+            required: true
+          - name: text
+            label: 見出し
+            type: string
+            required: true
+          - name: tagline
+            label: 説明文
+            type: text
+          - name: actions
+            label: ボタン
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{text}"
+            fields:
+              - name: theme
+                label: 種類
+                type: select
+                options:
+                  values: [brand, alt]
+              - name: text
+                label: テキスト
+                type: string
+              - name: link
+                label: リンク
+                type: string
+      - name: features
+        label: 特徴
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: タイトル
+            type: string
+            required: true
+          - name: details
+            label: 詳細
+            type: text
+
+  - name: how_to_use
+    label: アプリの使い方
+    type: file
+    path: how-to-use.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: body
+        label: 本文
+        type: code
+        options:
+          format: markdown
+
+  - name: privacy_policy
+    label: プライバシーポリシー
+    type: file
+    path: privacy-policy.md
+    format: yaml-frontmatter
+    operations:
+      create: false
+      rename: false
+      delete: false
+    fields:
+      - name: outline
+        label: 目次の深さ
+        type: select
+        options:
+          values: [deep, false]
+      - name: body
+        label: 本文
+        type: code
+        options:
+          format: markdown
+
+settings:
+  commit:
+    templates:
+      create: "docs: create {name}"
+      update: "docs: update {name}"
+      delete: "docs: delete {name}"
